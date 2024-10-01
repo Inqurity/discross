@@ -41,6 +41,31 @@ Platforms that are confirmed to work, to some extent:
 * Xbox 360
 * Xbox One
 
+## Features
+Discross is **not** by any extent a feature-complete Discord client
+
+### Features that **will not** be added
+Due to the nature of the project (as in it not requiring your Discord token and not having any control over your Discord account as well as them being unavaliable in most older browsers) some Discord features will remain unavaliable, such as:
+* Using reactions (not seeing them)
+* Voice channels
+* Direct messages
+* Friends
+* Joining servers
+* Leaving servers
+* Changing your profile settings
+* Administrating a server
+* Any features requiring Discord Nitro
+* Bots (most of them ignore webhooks)
+
+### Features that may be added
+Features you may expect to be added in the future. You can contribute to the project if you want to see them soon.
+* Stickers
+* Uploading files
+* Sending emoji
+* Profile pictures
+* Viewing reactions
+* Proper website embeds
+
 ## Screenshots!
 
 <img src="./pages/static/screenshots/IE6.png" alt="Discross on Internet Explorer 6" style="max-width: 100%;">
