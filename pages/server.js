@@ -167,10 +167,11 @@ exports.processServer = async function (bot, req, res, args, discordID) {
       });
     }
 
-    const custom_emoji_matches = [...response.matchAll?.(/&lt;(:)?(?:(a):)?(\w{2,32}):(\d{17,19})?(?:(?!\1).)*&gt;?/g)];                // I'm not sure how to detect if an emoji is inline, since we don't have the whole message here to use it's length.
-    if (custom_emoji_matches[0] && imagesCookie) custom_emoji_matches.forEach(async match => {                                                          // Tried Regex to find the whole message by matching the HTML tags that would appear before and after a message
-      response = response.replace(match[0], `<img src="/imageProxy/emoji/${match[4]}.${match[2] ? "gif" : "png"}" style="width: 6%;"  alt="emoji">`)    // Make it smaller if inline
-    })
+    // I don't remember what this piece of code was about, and the comments don't really help. It doesn't actually make inline emojis smaller, so I'm commenting it out for now.
+    /*const custom_emoji_matches = [...response.matchAll?.(/&lt;(:)?(?:(a):)?(\w{2,32}):(\d{17,19})?(?:(?!\1).)*&gt;?/g)];                // I'm not sure how to detect if an emoji is inline, since we don't have the whole message here to use it's length.
+    if (custom_emoji_matches[0] && imagesCookie) custom_emoji_matches.forEach(async match => {                                          // Tried Regex to find the whole message by matching the HTML tags that would appear before and after a message
+      response = response.replace(match[0], `<img src="/imageProxy/emoji/${match[4]}.${match[2] ? "gif" : "png"}" style="width: 6%;"  alt="emoji">`) // Make it smaller if inline
+    })*/
 
     res.writeHead(200, { "Content-Type": "text/html" });
     res.write(response);
@@ -201,7 +202,7 @@ function applyUserPreferences(response, req) {
   response = whiteThemeCookie == 1 ? response.replace("{$WHITE_THEME_ENABLED}", "class=\"light-theme\"") : response.replace("{$WHITE_THEME_ENABLED}", "");
 
   const imagesCookie = req.headers.cookie?.split('; ')?.find(cookie => cookie.startsWith('images='))?.split('=')[1];
-  response = imagesCookie == 1 ? response.replace("{$IMAGES_WARNING}", "") : response.replace("{$IMAGES_WARNING}", no_images_warning_template);
+  response = imagesCookie == 1 ? response.replace("{$IMAGES_WARNING}", no_images_warning_template.replace('OFF', "ON")) : response.replace("{$IMAGES_WARNING}", no_images_warning_template);
 
   return response;
 }
