@@ -13,7 +13,7 @@ You can try out Discross there without having to invite the bot to your own serv
 
 0. Use the [link](https://discordapp.com/oauth2/authorize?client_id=968999890640338955&scope=bot&permissions=8) to add Discross to your server. Not necessary if you're already on a server with the bot.
 1. Type `^connect` on the server to get your verification code
-2. Go to [discross.rc24.xyz](https://discross.rc24.xyz/)
+2. Go to [discross.net](https://discross.net/)
 3. Register on the website with that code
 4. Click the "update your server list" button to authorize Discross with your Discord account
 
